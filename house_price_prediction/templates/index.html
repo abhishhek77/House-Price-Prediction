@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0002;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 22px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #dcfce7;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>House Price Prediction</h1>
+
+        <p>Enter the details of your house.</p>
+
+        <form method="POST">
+
+            <label>Area (square feet)</label>
+            <input type="number" name="area_sqft"
+                   min="1" step="any" required>
+
+            <label>Bedrooms</label>
+            <input type="number" name="bedrooms"
+                   min="1" required>
+
+            <label>Bathrooms</label>
+            <input type="number" name="bathrooms"
+                   min="1" required>
+
+            <label>Age of house (years)</label>
+            <input type="number" name="age_years"
+                   min="0" required>
+
+            <label>Garage spaces</label>
+            <input type="number" name="garage_spaces"
+                   min="0" required>
+
+            <label>Location</label>
+            <select name="location" required>
+                <option value="suburb">Suburb</option>
+                <option value="urban">Urban</option>
+                <option value="rural">Rural</option>
+            </select>
+
+            <button type="submit">Predict Price</button>
+
+        </form>
+
+        {% if price is not none %}
+        <div class="result">
+            <h2>Estimated Price</h2>
+            <h2>{{ "{:,.0f}".format(price) }}</h2>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
