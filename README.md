@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../house-price-banner.png.jpeg" alt="House Price Prediction Banner" width="100%">
+  <img src="./house-price-banner.png.jpeg" alt="House Price Prediction Banner" width="100%">
 </div>
 
 <br>
